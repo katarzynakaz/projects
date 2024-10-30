@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>
+
+  </title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <script>
+    const names = [
+      'kaska', 'laser', 'ali'
+    ];
+//array is an ibject where index is key and '' is value
+// to check is sth is an array 
+Array.isArray(names);
+
+//mutation method
+const numbers = [1,2,3,4,5];
+const numbersRev = numbers.reverse();
+console.log(numbersRev);
+
+// yhis mutates the original data
+
+// so reverse is a method on array 
+numbers.reverse();
+console.log(numbers);
+
+//some methods will create new arrays
+//in react create new version do not change original
+
+
+//immutable - do not change the original data
+numbers.slice(start at inclusive, end by not inclusive);
+//create a new array from portion
+const pizzaAlice = numbers.slice(1,4);
+//from ind 1 to 4 stop at before 4, not inclusive
+//original array unchanged, only new one copied
+
+//splice is mutable
+// splice has start and how many inclusive 
+const numbers = [1, 2, 3, 4, 5, 6];
+numbers.splice(3, 2);
+//start at ind 3 and go for 2 
+[1, 2, 3, 6]
+
+//use slice - easier with a shallow copy
+
+//if want to use mutation and not to mutate original
+// need to take a copy of original array
+// ... spread old into new
+const numbersReversed = [...numbers];
+numbersReversed.reverse();
+
+// or quicker
+
+const numbersReversed = [...numbers].reverse();
+
+
+// to create a copy of array and push into it 
+// push modifies riginal 
+names.push(anna);
+// so
+const names2 = [...names, 'anna'];
+// to add to front 
+names.usshift('wafel');
+// immutable way 
+const names3 = [...names].unshift('wafel');
+
+
+// ens push front unshift middle spread
+//to add to the middle
+const food = [
+  'pear', 'potato', 'tomato', 'cheese',
+];
+// no method to insert at specific index 
+const newFood = [
+  ...food.slice(0, 2),
+  'ham', //add new item
+  ...food.slice(2) //slice from where stopped - can pass one number and it will auto go to the end
+];
+newFood = pear potato ham tomato cheese
+
+// to remove from array 
+// remove tomato
+const newFood2 = [
+  ...newFood.slice(0, 3),
+  ...newFood.slice(4);
+]
+newFood2 = pear potato ham cheese
+// very common in react
+
+
+
+  //find index method
+  const hamIndex = newFood2.findIndex(food => {
+    if(food === 'ham') {
+      return true;
+    } else {
+      return false;
+    }
+  });
+console.log(newFood2[hamIndex]);
+// very long
+//can do 
+const hamIndex = newFood2.findIndex(food => {
+    return food === 'ham';
+  });
+//above is explicit return
+//can use implicit return one liner
+const hamIndex = newFood2.findIndex(food => food === 'ham');
+//loop over every food and return if === to ham
+
+const newFoood2NoHam = [
+//get everything up to ham 
+...newFood2.slice(0, hamIndex),
+//everything after ham
+...newFood2. slice (hamIndex + 1),
+];
+
+console.log(newFood2NoHam);
+// if no spraead 2 arrays will be created
+
+
+
+const comments = [
+  { text: 'cool' , id:123 },
+  { text: 'cool cool' , id:163 },
+  { text: 'hey' , id:183 },
+  { text: 'cat' , id:545 },
+  { text: 'cool cool cool' , id:486 },
+]
+
+function deleteComment(id, comments) {
+  // find index of item in array
+  const commentIndex = comments.findIndex(comments => comments.id === id);
+
+  //make new array without
+  //return new array
+  return [
+    ...comments.slice(0, commentIndex),
+    ...comments.slice(commentIndex + 1),
+  ];
+};
+
+
+
+  </script>
+</body>
+
+</html>

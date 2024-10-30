@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>For Loops</title>
+</head>
+
+<body>
+  <script>
+    const numbers = [2, 34, 3, 23, 42, 3, 1, 65, 364, 5, 645, 6];
+
+    const name = 'Wes Bos';
+
+    // For
+    // good for running block of code several times
+    //used in canvas
+
+    // for(let i = 0; i <= 10; i ++) {
+    //   console.log(i);
+    // }
+
+//woth let code is scoped to the block it's in 
+//let and const are block scoped 
+
+    // for (let i = 100; i <= 200; i +=2) {
+    //   console.log(i);
+    // }
+
+    for (let i = 0; i < numbers.length; i++) {
+      console.log(numbers[i]);
+    }
+    // refactor to for each loop as it's much better or map or reduce
+     
+
+    // For of
+    // array or string - can handle emojis - can't use split on emojis,
+//  - doesn tgive us index or does not allow to filter 
+    for(const letter of name) {
+      console.log(letter);
+    }
+
+    // For in
+    // used for looping over keys of an object 
+    const kaska = {
+      name: 'kaska',
+      age: 300,
+    };
+
+for (const prop in kaska) {
+  console.log(prop);
+}
+
+//will give us each of the props
+// object.values/ keys preferred but this is there 
+// gottcha is prototype
+
+const baseHumanStats = {
+  feet: 2, 
+  arms: 2,
+  eyes: 2,
+}
+
+function Human(name) {
+  this.name = name;
+}
+
+const kaska2 = new Human('kaska')
+
+//kaska2 is no automatically the prototype  
+// when accessing prop it tries to check on the object, then it will look up the prototype
+// so we do niot get keys by defaultso does not grab stuff from kaska2 by default prototype
+
+//if need to grab prototype methds and props use for in 
+// most cases do not need so use object.entries
+
+
+    // While Loop
+  // take condition and run infinitely until condition is false 
+
+  let cool = true;
+  while (cool === true) {
+    console.log('You are cool');
+  }
+  
+  // it will run forever because no exit condition - infinite loop
+// while always checks the condition befre the first run
+
+// to stop set exit condition 
+let cool = true;
+let i = 1;
+  while (cool === true) {
+    console.log('You are cool');
+    i++;
+    if (i > 100) {
+
+      cool = false;
+    }
+  }
+  
+
+  //do while 
+do runs first and check the condition after the first run 
+  
+
+do {
+
+} while () 
+  
+  </script>
+</body>
+
+</html>

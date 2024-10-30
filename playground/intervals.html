@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Intervals and Timers</title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <script>
+      // setTimeout(callback, number of ms to run it after);
+      // do not use window.setTimeout - as node js has no concept of window 
+      
+      // can be done this way or function can be written outide
+      //  and then passed as an argument
+
+      // setTimeout(function() {
+      //   console.log('Done!');
+      // }, 500);
+        function buzzer() {
+          console.log('buzzzzzzzz');
+        }
+
+        setTimeout(buzzer(), 500);
+
+      // asychronic nature of js - as soon as lands code to run moves on and comes back adter done
+        // if 3 lines of code it will just go off
+
+
+       
+// here we made a funtion that takes a parameter of another function
+//when called
+// either run it or transform pass one level up
+
+
+        function setImmediateInterval(funcToRun, ms) {
+          // right away call that function 
+          funcToRun();
+          //run regular interval 
+          return setInterval(funcToRun, ms);
+          // return to stop in terval from running
+        }
+    
+        // setInterval(buzzer, 100);
+        // 2000 2s
+        // does not run right away but after 2s
+        // code own interval 
+
+        // swap for immediate iknterval functon 
+        setImmediateInterval(buzzer, 2000);
+
+
+        // both timeout an intervak do not run immediately
+        // to clear need to save reference to it
+
+        function destroy() {
+          document.body,innerHTML = `<p>DESTROYED</p>`;
+        }
+
+        const bombTimer = setTimeout(destroy, 5000); 
+        console.log(bombTimer);
+
+        //if not clicked in 5 sec run
+        // if clicks clearInterval
+        window.addEventListener('click', function'() {
+          console.log('You clicked, you saved the world!');
+// how to stop  the timer form running
+// save reference to time r by const
+//  clear 
+        clearTimeout(bombTimer);
+        // stop timer from running always need to save reference in a variable
+
+
+        });
+
+          //intervals work the same way
+
+          const poopInterval = setInterval(function () {
+            console.log('poop');
+            console.log('hihihi');
+          }, 100);
+
+          clearInterval(poopInterval);
+
+
+              // to stop running ater 3seconds
+              setTimeout(function() {
+                clearInterval(poopInterval);
+              }, 3000);
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

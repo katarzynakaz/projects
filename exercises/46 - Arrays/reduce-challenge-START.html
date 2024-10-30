@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Reduce!</title>
+  <link rel="stylesheet" href="../../base.css">
+</head>
+
+<body>
+  <script>
+    // Grab all the tex 
+
+const text = `
+Are you recruiting? Advertise now
+Register CV 
+Toggle navigation
+Job title, skill or company
+Town, city or postcode
+
+10 miles
+Recommended jobs
+Kura
+Junior Software Developer
+Gallowgate, Glasgow (G4), G4 0JY
+ 
+From £25,000 to £30,000 per annum
+Kura (View profile)
+Permanent
+Recently
+Activate one-click apply. What is one-click apply?
+Job Title: Junior Software Devloper
+
+Location: Glasgow, UK
+
+Salary: £25,000 to £30,000
+
+Role Details
+Inisoft have an exciting opportunity for a Junior Software Developer to join our Development Team.
+
+Focused on building awesome experiences, Inisoft are a market-leading provider of customer experience technology for contact centres, with clients throughout Europe, the Middle East, and North America.
+
+Software is all about solving problems, and the right software can change people’s experiences – in our case the experience of both contact centre agents and customers.
+
+The ideal candidate will have familiarity with C#, .NET, and web technologies, including a JavaScript framework such as Vue.js, React or Angular.
+
+Key Responsibilities
+
+Support the design, development, and implementation of technically excellent solutions and features for our products.
+Implement peer-review feedback to refactor and optimise the code we produce.
+Collaborate with cross-functional teams to support the testing process and understand requirements.
+Diagnose and fix issues raised by our QA and Support teams.
+Benefits
+Enhanced CSP & Maternity/Paternity Scheme.
+Bonus Opportunity.
+Employee Assistance Programme – a free and confidential personal support service that is available to you 24 hours a day.
+Store Discounts - up to 25% off Gym Membership, up to 10 % off the cost of a holiday, and much more.
+Requirements
+Experience with C# and .NET Framework.
+Experience using web technologies, including a JavaScript framework such as Vue.Js, React or Angular.
+Familiarity with Agile development methodologies such as Scrum.
+Excellent problem-solving and analytical skills.
+Strong verbal and written communication skills, with the ability to work independently and as part of a team.
+Apply for this job online
+Email this job to a friend
+Share on your newsfeed
+Application FAQs
+Contact: Sairah Blake
+Reference: Totaljobs/2024-5596
+Job ID: 101925530
+Activate one-click apply. What is one-click apply?
+Alert me to jobs like these:Junior Software Developer in Glasgow + 10 miles
+Email address:
+
+name@example.com
+By clicking create alert you will sign up to the Totaljobs service and agree to our terms and conditions
+Share this job: Tweet Share G+ Send to a friend
+People also viewed
+Junior Software Developer
+Knott Mill, Manchester, M1 4BT
+Up to £24000 per annum + £29k OTE + Benefits
+Junior Developer
+North West
+Competitive
+Junior Software Developer
+Birmingham, B7 4BP
+Up to £24000 per annum + £29k OTE + Benefits
+Web Developer
+Edinburgh, Midlothian
+Negotiable
+Software Engineer
+London
+Competitive
+C# Full Stack Software Engineer
+Aberdeen (AB10)
+£40,000 - £60,000
+Related Jobs
+Jobs in Gallowgate, GlasgowJobs in GlasgowJunior Software Developer jobsSoftware Development jobsJunior Software Developer jobs in Gallowgate, GlasgowIT jobs in Gallowgate, GlasgowSoftware Development jobs in Gallowgate, GlasgowJunior Software Developer jobs in GlasgowNHS jobsData Entry jobsRemote jobsVirtual Assistant jobsAccount Manager jobsApprenticeship jobsCyber Security jobsJava Engineer at Sainsbury'sSenior Change Manager at AmazonVice President at Goldman Sachs
+Please note: You should never need to provide bank account details or any other financial information, or make any form of payment, when applying for a job. If you are ever asked to do this by a recruiter on our site please contact us with the advertiser's company name and the title of the job vacancy.
+Totaljobs
+About us
+Privacy policy
+Terms and Conditions
+Cookies
+Compliance
+Work for us
+Press centre
+Partners
+Jobseeker
+Jobseeker login
+Contact us - jobseekers
+Salary Checker
+Salary Planner
+Submit a company review
+Submit an agency review
+Help
+Recruiter
+Advertise a job
+Existing customer login
+Contact us - recruiters
+Jobs confidential blog
+Recruiter advice
+Recruit internationally
+Mobile app
+     
+© Copyright and database rights The Stepstone Group UK Ltd 2024t from a web page
+
+`
+console.log(text);
+
+    // Count how many times each letter and number occurs
+// convert text into array of letters by spread or split
+// 1 -----------------
+const everything = text.split('');
+// split based on nothing
+console.log(everything)
+// or const everything = [...text];
+
+// 3 -------------------------
+function isValidChar(char) {
+  return char.match([a-zA-Z0-9]);
+  // chain .split instead of everything var 
+}
+
+// 4 --------------------
+function lowercase(char) {
+  return char.toLowerCase();
+}
+//  also write as => 
+//  const lowercase = character => char.toLowerCase();
+
+//5 count instances of with reduce
+function instanceCounter(counts, char) {
+  counts[char] 
+    ? counts[char] = counts[char] + 1 
+    : counts[char] = 1;
+  return counts; // so next loop has access to it
+}
+// does it exist? if so + 1 if no set  to 1
+
+
+  const resut = text
+    .split('')  // split rach char into an item of an array
+    .filter(isValidChar)
+    .map(lowercase) // to lowercase
+    .reduce(instanceCounter, {});
+ // do not ; as it means ended js line, only put at the end
+//  because this is spli .map.filter ;
+   console.log(result);
+
+// ----------------to check which most popular
+// sort a b previous and next and return 0 stay -1 go forward or + go backwards to next
+function sortByValue(a, b) {
+  return a[1] - b[1];
+}
+const sortedResult = Object
+  .entries(result)
+  .sort(sortByValue)
+
+console.log(sortedResult);
+
+
+
+// 2 ----------------------------
+//filter letters or numbers
+const result = everything.filter(char => {
+  //if character is a-zA-Z0-9, we want to keep it
+if (char.match([a-zA-Z0-9])) {
+  // or ([a-z0-9]/i) large or small insensitive
+  return true;
+} else {
+  return false;
+}
+}).map //to lowercase
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

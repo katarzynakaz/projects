@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Maps</title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <ul class="prizes"></ul>
+  <script>
+
+//map similar to object
+// map allows to put any value inthe the key as well as into the value
+// like 
+myMap.set(100, 'this is a number');
+
+    const person1 = {
+      name: 'kaska',
+      age: 35,
+    };
+
+    // use reference to object as a key on map to store additional info inside map
+    myMap.set(person1, 'She is awesome');
+
+    //this will create an object and value of She is awesome 
+
+
+    const myMap = new Map();
+    // .set(prop, value)
+      myMap.set('name', 'kaska');
+
+      console.log(myMap);
+      myMap.age = 100;
+      //this will get logged as property not as entry
+
+      console.log(myMap.get(person1));
+
+
+    const score = 200;
+    const prizes = new Map() ;
+    prizes.set(100, 'Fruit');
+    prizes.set(200, 'Bear');
+    prizes.set(300, 'Car');
+
+    console.log(`you win a ${ prizes.get(score) }`);
+
+    // select that ul
+
+    const ul = document.querySelector('.prizes'); 
+    //loop over
+    prizes.forEach(entry => {
+      console.log(entry);
+    })
+    //this JUST GIVES US THE value - the above
+
+    for (const prize of prizes) {
+      console.log(prize[0], prize[1]);
+    };
+
+      //or we can destructure 
+    //instead of referencing by index we can create variables by index
+    for (const [points, prize] of prizes) {
+      console.log(points, prize); //this works the same so we can make a list item 
+      const li = `<li>$&{points} - ${prize}</li>`;
+      ul.insertAdjacentHTML('beforeend', li);
+    
+    }
+
+    myMap.size;
+
+    // in maps order is guaranteed, in objects it's not 
+// use a map if ordere needs to be maintained like prizes
+// - downside - new map and set items in it, can pass items 
+    //
+// you can put functtions inside an object (methids) but cant with a map , map is only for storage
+
+json - 
+//to transfer object or array - to send - json - to send to someone object needs to be converted
+const person = {
+  name: 'kaska'; 
+  age: 500;
+}
+JSON.stringify(person);
+"{"name":"kaska","age":500}"
+// the recipnet needs to convert back into object
+JSON.parse({"name":"Kaska","age":500});
+
+
+
+    // .has()
+
+
+
+    //.delete()
+myMap.delete('name');
+//
+  </script>
+</body>
+
+</html>

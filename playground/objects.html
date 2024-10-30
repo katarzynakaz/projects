@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <input type="text" name="first" value="kaska">
+
+
+  <script src="https://unpkg.com/browse/lodash@4.17.21/"></script>
+  <script>
+      //objects iused in where order of properties does not matter
+
+      const age = 35; 
+      const me = {
+        name: 'kaska',
+        age, // age: age, // or say age,  if its the same name of var and prop
+        'awesome-lady': true, //can put -
+        'r1eally dull': false, // can put space in property type not value
+        // always add comma at the end - comma dangle
+        //add nested props/objects as many nests as needed
+        '777': true,
+        clothing: {
+          tops: 10,
+          leggings: 2,
+        },
+        sayHello: function(greeting = 'Hey!') {
+          return `${greeting} ${this.name}`
+        },
+      };
+
+// to add new prop
+    person.job ='Business Owner';
+    person.age = 39.80;
+      
+
+      console.log(person);
+//const means value can be changed by binding cannot 
+// props can change of object as it goes older , but noone can use a kaska clone so const me
+
+// to freeze values in object create frozen object 
+// to return a new object 
+
+const meFrozen = Object.freeze(me);
+console.log(me);
+// above cannot be changed - immutable 
+
+// to access a prop 
+console.log(me.clothing);
+
+// .
+
+// or []
+console.log(me[clothing]);
+
+// when prop of object is stored in variable 
+console.log(propToCheck) 
+<!--this will look for the exact prop-->
+
+
+<!--me.777 - invalid prop lookup and need to use [] so me['777']-->
+
+check for propme.eyes
+
+deep check levels deep
+me?.eyes?.side
+
+const nameInput = document.querySelector('[name="first"]');
+const name = nameInput.value;
+console.log(name);
+
+<!-- but check forst if exist so -->
+const name = nampeInput ? nameInput.value : '';
+
+// if input dors not exist on t
+
+// delete prop
+delete me.job;
+
+//method vs function
+method is sa function that lives inside object
+me.sayHello();
+hey
+me.sayHello('czesc');
+czesc
+
+this = equal to left of the dot
+
+method shorthand 
+sayHerllo(greeting = 'Hey') {
+  return `${greeting} ${this.name}`;
+}
+
+// arrow fuinction as a property on object no access to this keywordv- arrow function do not scope this 
+
+//obtecs are === compared by reference to object itself not values inside 
+, they have same content by chance
+human 1 human 2 content liver heart, not the same object 
+
+=== string can only have a valuearrays and objects can have multiple things inside them
+
+const person3 = person1;
+person3.first = 'Anna';
+console.log(person3.first);
+console.log(person1.first);
+
+
+//this does not create a copy, it only references 
+//same in arrays 
+// person 3 is directly referencing person1 as not copied but poiny yo original var. so anty changes will chsmgwv person 1
+
+// to copy
+
+spread operator
+take all properties insie an object and spreading into a new object 
+
+const person3 = {...person1 };
+
+//spreads all into new object 'old way to take a copy
+const person3 = Object.assign({}, person1);
+
+person3.first = 'Laser';
+
+spread is a shallow copy and wil also update person 1, only 1 lvl deep
+to overcome this - use library
+deep clone deep copy - use utility library Lodash
+
+deep clone
+1 const deep - load first above script in script src
+2 type . in console -all modules are available
+3 const person3 = _.cloneDeep(person1);
+
+
+const fruitInventory = {
+  apple: 7,
+  pear: 9,
+}
+
+const cheeseInventory = {
+  minger: 2, 
+  brie: 7,
+}
+
+//to make cheeseboard
+const cheeseBoard = { ...fruitInventory, ...cheeseInventory };
+
+can also add new values and place on separate lines
+const cheeseBoard = { 
+  ...fruitInventory, 
+  ...cheeseInventory,
+  chutney: 5,
+};
+//order mstters if duplicate inside then override
+
+
+function doStuff(data) {
+  data = 'sth else';
+  console.log(data);
+}
+
+doStuff(name1);
+
+it refernces to value only when typing in name1 it will stil show oiginal value
+
+// booleans numbers and strings wont be modified and only changes inside data in a fuction not outised of dfuxcntion 
+function doStuff2(data) {
+  data.apple = 1000;
+  conosle.log(data);
+}
+
+doStuff2(cheeseBoard);
+
+//it will modify the object and array
+
+
+  </script>
+</body>
+
+</html>

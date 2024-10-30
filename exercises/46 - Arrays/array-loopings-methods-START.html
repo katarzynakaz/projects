@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>
+
+  </title>
+  <link rel="stylesheet" href="../../base.css">
+</head>
+
+<body>
+  <script>
+    const toppings = ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese'];
+
+    const students = [
+      {
+        id: '11ce',
+        first_name: 'Dall',
+        last_name: 'Puckring',
+      },
+      {
+        id: '2958',
+        first_name: 'Margarete',
+        last_name: 'Brandi',
+      },
+      {
+        id: '565a',
+        first_name: 'Bendicty',
+        last_name: 'Woodage',
+      },
+      {
+        id: '3a16',
+        first_name: 'Micki',
+        last_name: 'Mattes',
+      },
+      {
+        id: 'f396',
+        first_name: 'Flory',
+        last_name: 'Gladeche',
+      },
+      {
+        id: 'de5f',
+        first_name: 'Jamill',
+        last_name: 'Emilien',
+      },
+      {
+        id: '54cb',
+        first_name: 'Brett',
+        last_name: 'Aizikowitz',
+      },
+      {
+        id: '9135',
+        first_name: 'Lorry',
+        last_name: 'Smallman',
+      },
+      {
+        id: '978f',
+        first_name: 'Gilly',
+        last_name: 'Flott',
+      },
+    ];
+
+    const people = [
+      {
+        birthday: 'April 22, 1993',
+        names: {
+          first: 'Keith',
+          last: 'Buckley'
+        }
+      },
+      {
+        birthday: 'January 3, 1975',
+        names: {
+          first: 'Larry',
+          last: 'Heep'
+        }
+      },
+      {
+        birthday: 'February 12, 1944',
+        names: {
+          first: 'Linda',
+          last: 'Bermeer'
+        }
+      }
+    ];
+
+
+    const buns = ['egg', 'wonder', 'brioche'];
+
+    const meats = {
+      beyond: 10,
+      beef: 5,
+      pork: 7
+    };
+
+    const prices = {
+      hotDog: 453,
+      burger: 765,
+      sausage: 634,
+      corn: 234,
+    };
+
+    const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
+
+    const feedback = [
+      { comment: 'Love the burgs', rating: 4 },
+      { comment: 'Horrible Service', rating: 2 },
+      { comment: 'Smoothies are great, liked the burger too', rating: 5 },
+      { comment: 'Ambiance needs work', rating: 3 },
+      { comment: 'I DONT LIKE BURGERS', rating: 1 },
+    ];
+
+    const faces = ['😃', '🤠', '🤡', '🤑', '😵', '🌞', '🐶', '😺'];
+
+    const inventory = [
+      { type: 'shirt', price: 4000 },
+      { type: 'pants', price: 4532 },
+      { type: 'socks', price: 234 },
+      { type: 'shirt', price: 2343 },
+      { type: 'pants', price: 2343 },
+      { type: 'socks', price: 542 },
+      { type: 'pants', price: 123 },
+    ];
+
+
+    /*
+      Looping Methods
+    */
+
+
+
+    //most basic loop - run once per item in fucntion - take a callback
+    // foreach foes not return value does not store result in var, it does work for array thats all
+    // handy to attach ev listener display data on pagr - side effects
+
+    // function logTopping(topping) {
+    //   console.log(topping);
+    //   // debugger;
+    // }
+    // toppings.forEach(logTopping);
+
+    // toppings.forEach(topping => {
+    //   console.log(topping);
+    // });
+
+
+    // function logTopping(topping, index, originalArray) {
+
+    //   //move var to top
+    //   const nextTopping = originalArray[index + 1];
+    //   const prevTopping = originalArray[index - 1];
+    //       //topping - arg actual values, params placeholder
+    //   // log the topping
+    //   console.log(topping);
+    //   //log prev toping if there is one
+    //   prevTopping ? console.log(prevTopping) : null;
+    //   // long next topping if there is one
+    //   const nextTopping = originalArray[index +1];
+    //   if (nextTopping) {
+        
+    //     console.log(nextTopping);
+    //   }
+    //   //use ternary
+    //   nextTopping ? console.log(nextTopping) : null;
+
+
+    //   //if its the last item say bye bye
+    //   index === originalArray.length -1 ? console.log(bye) : null;
+      
+    //   //por place on separate lines
+    //   index === originalArray.length -1 
+    //     ? console.log('bye') 
+    //     : null;
+      
+    //   // or abuse && conditionals and shortcircuit
+    //   index === originalArray.length -1 && consolelog('bye');
+
+
+    //   console.log('--------[pizza----------');
+
+
+
+    // }
+    // toppings.forEach(logTopping);
+
+
+    // Map
+    // returns the same amount of things back 
+    function addArms(face) {
+      return `👍 ${face} 👍`;
+    }
+
+    const toys = faces.map(addArms);
+    console.log(toys);
+
+
+    function addKazimierczuk(name) {
+      return `${name} Kazimierczuk`;
+    }
+
+    function capitalize(word) {
+      return `${word[0].toUpperCase()}${word.slice(1)}`;
+    }
+    // const fullNames = ['kaska', 'laser'].map(name => `${name} kazimierczuk`);
+  //  const fullNames = ['kaska', 'laser'].map(addKazimierczuk);
+  //  chain map 
+    const fullNames = ['kaska', 'laser']
+      .map(capitalize)
+      .map(addKazimierczuk);
+    console.log(fullNames)
+
+// map always takes an item and does sth and returns - replaces what was inside the function initially - new array with updated value
+
+    const orderTotalsWithTax = orderTotals.map(total => total * 1.13);
+    console.log(orderTotalsWithTax);
+
+
+
+    // to repeat letters
+    // 'x'.repeat(20)
+
+    // array(3) - array with 3 empty slots, like array from
+    // to fill with the same stuff, 
+    // Array(3).fill('x');
+
+    const cleanPeople = people.map(function(person) {
+      //get bday //change string to js date/
+       // to compare dates - change to timestamp - convert consts with .getTime()
+      const birthday = new Date(person.birthday).getTime();
+      //figure old how old they are /newDate() will give thedate now - emoty
+      const now = Date.now();
+      // console.log(birthday, now);
+      const age = Math.floor((now - birthday) / 31536000000);  //  //convert ms to years
+      console.log(age);
+        //return full name and bday in an object
+        return {
+          age: age,
+          // can also be 
+          // age,
+          name: `${person.names.first} ${person.names.last}`,
+        }
+    });
+
+    console.table(cleanPeople);
+
+    const over40 = cleanPeople.filter( function (person) {
+      if (person.age > 40) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    console.table(over40);
+
+    const over40 = cleanPeople.filter(person => person.age > 40 ? true : false);
+    // or just do the return as it returns true or false person.age > 40;
+    to check if people are there
+    if(over40.length) {
+      console.log('some over 40');
+    }
+
+// find will find only one - actual item
+// filter will match all of them -array
+
+const styudent = student.find(function (student) {
+  if (stude.id === '565a') {
+    return stud.id
+  } else {
+    return;
+  }
+});
+
+
+    // const student = students.find(stud => stud.id = '565a');
+    // console.log(student);
+
+// we will be looking for a stydent with a specific id, so wrap in another funtion and return the other function '
+function findById(id) {
+  return function isStudent(student) {
+      return student.id === id;
+    }
+  }
+
+    const student = students.find(isStudent);
+    console.log(student);
+
+// high order function is a function that returns another function 
+
+// or further to make it more flexible
+// find by last name/first namr or property
+function findByProp(prop, propWeAreLookingFor) {
+  return function isStudent(student) {
+    return student[prop] == propWeAreLookingFor;
+  }
+}
+
+(key, value)
+const student = students.find(findByProp('id', '565a'));
+const student2 = students.find(findByProp('first_name', 'Micki'));
+console.log(student);
+
+// REDUCE
+// takes in an array and will turn it to result or single value
+// loop over every item in array and keep total
+
+//2 need a calllback function thay will run through all numbers
+function tallyNumbers(tally, currentTotal) {
+  console.log(`The current tally is ${tally}`);
+  console.log(`The current total is ${total}`);
+  console.log('-----------');
+  // return current tally plus current total
+  return tally + currentTotal;
+}
+//pass tallNumbers into function below
+
+// 1
+const allOrders = orderTotals.reduce(tallyNumbers);
+
+//4 reduce takes the second number in array as what do you want to start to count accumulate at 
+// so if no value is provided it will auto take the first 2 numbers to start looping from 
+const allOrders = orderTotals.reduce(tallyNumbers, 0);
+caches.log(allOrders);
+
+
+
+
+
+
+
+
+// invenntory - how many shirts pants, what is the total value
+//counting instances of
+
+function inventoryReduce(totals, item) {
+  console.log(`Looping over ${item.type}`);
+  // 1    ------ increment the type by 1
+  // totals.shirt = totals.shirt + 1;
+  // return totals;
+  // this Nan as shirt does not exist
+  //- ----------- check if shirt exists and if does add 1, if no, set to 0
+  // totals.shirt = totals.shirt + 1 || 1;
+
+  // also can be
+  // if (totals. shirt) {
+    // totals.shirt = totals.shirt +1; 
+    // or  totals.shirt ++;
+    // } else {
+    //   totals.shirt = 1;
+    // }}
+    // or 
+    // totals.shirt ? totals.shirt ++ : totals.shirt = 1;
+
+
+    // 2  --------
+    // to make it universal do nothardcode shirt but prop 
+    // totals.shirt = totals.shirt + 1 || 1;
+    // change to 
+    totals[item.type] = totals[item.type] + 1 || 1;
+    return totals;
+
+
+  }
+
+  
+// const inverntoryCounts = inventory.reduce(inventoryReducer, {
+//   shirts: 0,
+//   pants:0,
+//   socks: 0,
+// }
+//above not poss to do as there may be many, so stary with an {} 
+
+const inverntoryCounts = inventory.reduce(inventoryReducer, {});
+console.log(inverntoryCounts);
+
+const totalInventoryPrice = inventory.reduce((accumulator, item) => acc + item.price, 0);
+//start with 0, loop over every single item, return previous amount - accumulator, plus price of this one
+console.log(totalInventoryPrice);
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
